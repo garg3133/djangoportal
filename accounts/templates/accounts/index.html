@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            padding: 5px;
+            border: 2px red solid;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Hello {{ user.username }}!</h1>
+        <h3>You have successfully logged in.</h3>
+        <table border="1" align="center">
+            <tr>
+                <th>Username</th>
+                <th>College Name</th>
+            </tr>
+            <tr>
+                <td>{{ info.username }}</td>
+                <td>{{ info.college }}</td>
+            </tr>
+        </table>
+        <br>
+        <a href="{% url 'update' %}">Update</a>
+        <a href="{% url 'delete' %}">Delete</a>
+        <a href="{% url 'logout' %}">Logout</a>
+
+    {% else %}
+        <h3>You are not logged in</h3>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</body>
+</html>
