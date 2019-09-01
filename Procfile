@@ -1,3 +1,1 @@
-web:
-gunicorn
-djangoportal.wsgi
+web: gunicorn djangoportal.wsgi
